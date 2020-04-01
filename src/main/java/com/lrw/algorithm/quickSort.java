@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * 快速排序
+ * 优化，元素较少时可以使用插入排序
+ *
  */
 public class quickSort {
 
@@ -12,9 +14,11 @@ public class quickSort {
 
     /**
      * 快速排序实现方法
+     * 平均时间复杂度 O(nLogN) 不稳定
      */
     private static int[] quickSortTest(int arr[],int left,int right){
-       if (right<left){//递归出口
+        //递归出口
+       if (right<left){
            return arr;
        }
        //选一个基准
@@ -34,7 +38,7 @@ public class quickSort {
            arr[i] = arr[j];
            arr[j] = temp;
        }
-       //执行到i==j时，需要将arr[i]与base交换位置，这样在arr[i]之前的都是比base小的，之后的都是比base大的
+       //执行到i==j时，需要将arr[i]与arr[left](base)交换位置，这样在arr[i]之前的都是比base小的，之后的都是比base大的
         arr[left] = arr[i];
         arr[i] = base;
         //执行完再排序左边的
@@ -44,14 +48,11 @@ public class quickSort {
     }
 
 
-
-
     public static void main(String[] args) {
         quickSortTest(arr,0,arr.length-1);
         for (int x=0;x<arr.length;x++){
             System.out.print(arr[x]+" ");
         }
-
     }
 
 
