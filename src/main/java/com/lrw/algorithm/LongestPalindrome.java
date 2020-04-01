@@ -18,24 +18,38 @@ public class LongestPalindrome {
         if (null==str||str.trim().length()==0){
             return "";
         }
+        if (str.length()==1){
+            return str;
+        }
         //定义集合，存储所有字符串子串
         List<String> list  = new ArrayList<>();
         int len = str.length();
         for (int x=0;x<len;x++){
             for (int y=len;y<=len&&x<=y;y--){
                 String s = str.substring(x,y);
-                if (s.length()>1){
+                if (s.length()>1&&s.equals(reverse(s))){
                     list.add(s);
+                }else {
+                    continue;
                 }
             }
         }
-        //判断所有子串是否是回文
-        for(int i=0;i<list.size();i++){
-            if (list.get(i).equals(reverse(list.get(i)))){
-                return list.get(i);
+        //找出一群回文中最长的
+        int count = 0;
+        int index =0;
+        while (index<=list.size()){
+            if ((count+1)<list.size()&&list.get(index).length()<list.get(count+1).length()){
+                     index=count+1;
+            }
+            count++;
+            if (count>=list.size()){
+                break;
             }
         }
-        return "";
+        if (list.size()>0){
+            return list.get(index);
+        }
+        return String.valueOf(str.charAt(0));
     }
 
     /**
@@ -48,8 +62,22 @@ public class LongestPalindrome {
         return stringBuffer.reverse().toString();
     }
 
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
         //System.out.println(bruteForce("abcdeffedxx"));
-        System.out.println(bruteForce("ababa"));
+        long request = System.currentTimeMillis();
+        System.out.println(bruteForce("lcnvoknqgejxbfhijmxglisfzjwbtvhodwummdqeggzfczmetrdnoetmcydwddmtubcqmdjwnpzdqcdhplxtezctvgnpobnnscrmeqkwgiedhzsvskrxwfyklynkplbgefjbyhlgmkkfpwngdkvwmbdskvagkcfsidrdgwgmnqjtdbtltzwxaokrvbxqqqhljszmefsyewwggylpugmdmemvcnlugipqdjnriythsanfdxpvbatsnatmlusspqizgknabhnqayeuzflkuysqyhfxojhfponsndytvjpbzlbfzjhmwoxcbwvhnvnzwmkhjxvuszgtqhctbqsxnasnhrusodeqmzrlcsrafghbqjpyklaaqximcjmpsxpzbyxqvpexytrhwhmrkuybtvqhwxdqhsnbecpfiudaqpzsvfaywvkhargputojdxonvlprzwvrjlmvqmrlftzbytqdusgeupuofhgonqoyffhmartpcbgybshllnjaapaixdbbljvjomdrrgfeqhwffcknmcqbhvulwiwmsxntropqzefwboozphjectnudtvzzlcmeruszqxvjgikcpfclnrayokxsqxpicfkvaerljmxchwcmxhtbwitsexfqowsflgzzeynuzhtzdaixhjtnielbablmckqzcccalpuyahwowqpcskjencokprybrpmpdnswslpunohafvminfolekdleusuaeiatdqsoatputmymqvxjqpikumgmxaxidlrlfmrhpkzmnxjtvdnopcgsiedvtfkltvplfcfflmwyqffktsmpezbxlnjegdlrcubwqvhxdammpkwkycrqtegepyxtohspeasrdtinjhbesilsvffnzznltsspjwuogdyzvanalohmzrywdwqqcukjceothydlgtocukc"));
+        long response = System.currentTimeMillis();
+        System.out.println((response-request));
     }
 }
