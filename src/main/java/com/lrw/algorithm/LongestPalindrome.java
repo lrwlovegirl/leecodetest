@@ -21,7 +21,7 @@ public class LongestPalindrome {
         if (str.length()==1){
             return str;
         }
-        //定义集合，存储所有字符串子串
+        //定义集合，存储所有回文字符串子串
         List<String> list  = new ArrayList<>();
         int len = str.length();
         for (int x=0;x<len;x++){
@@ -38,6 +38,7 @@ public class LongestPalindrome {
         int count = 0;
         int index =0;
         while (index<=list.size()){
+            //比较获取最长的回文字符串
             if ((count+1)<list.size()&&list.get(index).length()<list.get(count+1).length()){
                      index=count+1;
             }
@@ -49,6 +50,7 @@ public class LongestPalindrome {
         if (list.size()>0){
             return list.get(index);
         }
+        //如果输入"ac",就返回a
         return String.valueOf(str.charAt(0));
     }
 
@@ -61,17 +63,6 @@ public class LongestPalindrome {
         StringBuffer stringBuffer = new StringBuffer(s);
         return stringBuffer.reverse().toString();
     }
-
-
-
-
-
-
-
-
-
-
-
 
     public static void main(String[] args) {
         //System.out.println(bruteForce("abcdeffedxx"));
