@@ -1,8 +1,11 @@
 package com.lrw.designpatterns;
 
+import org.springframework.util.CollectionUtils;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Collections;
 
 /**
  * 代理模式
@@ -99,5 +102,5 @@ class DynamicProxyFactory{
  * cglib代理会虚拟出一个继承了目标类的子类
  */
 class CgLibProxy{
-
+    //private final List<Worker> workers = (List<Worker>) Collections.synchronizedList(new ArrayList<Worker>());
 }

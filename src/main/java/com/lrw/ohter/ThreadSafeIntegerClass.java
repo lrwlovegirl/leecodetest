@@ -1,8 +1,6 @@
-package com.lrw.algorithm;
+package com.lrw.ohter;
 
 import sun.misc.Unsafe;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 不使用锁，以及synchronized关键字实现一个线程安全的整数类
@@ -23,5 +21,7 @@ public class ThreadSafeIntegerClass {
     }
 
     private volatile int value;
-
+    public final int getAndSet(int newValue) {
+        return unsafe.getAndSetInt(this, valueOffset, newValue);
+    }
 }
