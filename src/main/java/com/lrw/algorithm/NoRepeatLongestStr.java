@@ -16,7 +16,7 @@ import java.util.Set;
  */
 public class NoRepeatLongestStr {
 
-
+    //此题解在leecode测试中，超出时间要求，时间复杂度O(n3)
     public static int lengthOfLongestSubstring(String s) {
         if (null == s || s.length() == 0) {
             return 0;
@@ -26,7 +26,8 @@ public class NoRepeatLongestStr {
         }
         int len = s.length();
         //暴力破解
-        int ans = 0;
+        int ans = 0;//返回的字符串长度
+
         for (int x = 0; x < len; x++) {
             for (int y = x + 1; y <= len; y++) {
                 if (isUnique(s, x, y)) {
@@ -36,10 +37,10 @@ public class NoRepeatLongestStr {
         }
         return ans;
     }
-
+    //判断某个字符串是否含有重复字符
     public static boolean isUnique(String s, int x, int y) {
         Set<Character> set = new HashSet<>();
-        for (int i = x; i <= y; i++) {
+        for (int i = x; i < y; i++) {
             Character ch = s.charAt(i);
             if (set.contains(ch)) {
                 return false;
