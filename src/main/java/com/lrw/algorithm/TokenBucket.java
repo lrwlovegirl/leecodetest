@@ -6,8 +6,10 @@ package com.lrw.algorithm;
  * token以一个固定的速率向桶中填充，直到达到桶的容量
  * 多余的令牌将会被丢弃，每当一个请求过来时，就会尝试从桶中移除一个令牌
  * 如果桶中没有令牌的话，请求无法通过
+ * ps: 这里要用单例模式
  */
 public class TokenBucket {
+
 
     public long timeStamp = System.currentTimeMillis();
     /**
