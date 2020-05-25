@@ -5,9 +5,9 @@ import sun.nio.ch.DirectBuffer;
 /**
  * 什么是ThreadLocal
  *     线程本地存储，spring中Transaction中用到。是一个数据结构，有点像HashMap,可以保存key-value键值对
- *但是threadLocal只能保存一个变量
+ * 但是threadLocal只能保存一个变量
  * 每个线程都有一个ThreadLocalMap数据结构，ThreadLocalMap是ThreadLocal中的一个静态内部类
- * ThreadLocalMap中初始化了以个大小为16的Entry对象数组，Entry对象用来保存每一个key-value值，而每一个key都是
+ * ThreadLocalMap中初始化了一个大小为16的Entry对象数组，Entry对象用来保存每一个key-value值，而每一个key都是
  * ThreadLocal对象，Entry对象没有next对象
  * 每个对象ThreadLocal对象都有一个hash值，threadLocalHashCode，每初始化一个ThreadLocal对象，hash值就增加固定的大小
  * set过程:
@@ -32,7 +32,12 @@ import sun.nio.ch.DirectBuffer;
  *   使用方法:
  *   ThreadLocal<String> threadLocal=new InheritableThreadLocal<String>();
  * 解析:
- *   InheritableThreadLocal 继承了ThreadLocal类
+ *   InheritableThreadLocal 继承了ThreadLocal类，并重写了三个方法，childValue(),getMap() createMap()
+ *   getMap 返回的是一个inheritableThreadLocals属性变量 (ThreadLocalMap) ==》Thread类的static 变量
+ *  在 Thread 类的构造方法中，调用了init（）方法，这个方法调用createInheritedMap方法：作用，如果父线程的inheritableThreadLocals 不为空，则
+ *  将当前线程的inheritableThreadLocals设置父线程的inheritableThreadLocals赋值给子线程，如何赋值呢，就是简单的拷贝一下
+ *
+ *
  */
 
 public class ThreadLocalTest {
@@ -44,7 +49,8 @@ public class ThreadLocalTest {
 //        System.out.println(localName.get());
         //todo: 子线程想使用父线程的值演示
         ThreadLocal<String> threadLocal=new ThreadLocal<String>();
-        ThreadLocal<String> local=new InheritableThreadLocal<String>();
+        InheritableThreadLocal<String> local=new InheritableThreadLocal<String>();
+
         threadLocal.set("xxxxx父线程");
         System.out.println("父线程的值："+threadLocal.get());
         new Thread(new Runnable(){

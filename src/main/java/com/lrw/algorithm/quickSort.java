@@ -27,10 +27,10 @@ public class quickSort {
        int j = right;
        while (i!=j){
            //必须从右往左开始
-           while (j>i&&arr[j]>=base){//小于标杆且没到标杆
+           while (j>i&&arr[j]>=base){//大于标杆且没到标杆
                j--;
            }
-           while (i<j&&arr[i]<=base){
+           while (i<j&&arr[i]<=base){//小于标杆且未没有从
                i++;
            }
            //程序执行到这，说明找到了比标杆大的和比标杆小的，交换他俩的位置

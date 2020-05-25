@@ -29,7 +29,8 @@ class ListNode {
 public class TwoNumAdd {
     /**
      * 第一眼思路：
-     * 将每个链表的值转成int ,然后两个int 相加 最后再转成链表 =>结果：未通过，缺陷，因为不int的取值范围很小，链表很容易超过int范围
+     * 将每个链表的值转成int ,然后两个int 相加 最后再转成链表 =>
+     * 结果：未通过，缺陷，因为不int的取值范围很小，链表很容易超过int范围
      *
      * @param l1
      * @param l2
@@ -182,6 +183,9 @@ public class TwoNumAdd {
      * 来源：力扣（LeetCode）
      * 链接：https://leetcode-cn.com/problems/add-two-numbers-ii
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     *
+     * 执行用时 :6 ms, 在所有 Java 提交中击败了32.19%的用户
+     * 内存消耗 :40.4 MB, 在所有 Java 提交中击败了95.83%的用户
      * @param l1
      * @param l2
      * @return

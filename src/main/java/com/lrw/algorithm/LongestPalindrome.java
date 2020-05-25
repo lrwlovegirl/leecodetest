@@ -50,6 +50,10 @@ public class LongestPalindrome {
         if (list.size()>0){
             return list.get(index);
         }
+
+
+
+
         //如果输入"ac",就返回a
         return String.valueOf(str.charAt(0));
     }
