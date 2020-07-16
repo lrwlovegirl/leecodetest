@@ -11,10 +11,8 @@ import java.util.List;
 public class ValidPalindrome {
 
     public static boolean validPalindrome(String s) {
-
         return false;
     }
-
     private static boolean valid(char[] chars){
        int i = 0 ;
        int j = chars.length-1;
@@ -24,12 +22,9 @@ public class ValidPalindrome {
        }
        return  false;
     }
-
-
     public static void main(String[] args) {
         ValidPalindrome vo = new ValidPalindrome();
         System.out.println(vo.hashCode());
-
     }
 
 }

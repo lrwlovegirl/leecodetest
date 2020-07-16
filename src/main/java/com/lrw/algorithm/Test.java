@@ -3,7 +3,6 @@ package com.lrw.algorithm;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 class Tree {
     int val;
@@ -13,28 +12,22 @@ class Tree {
     public void setVal(int val) {
         this.val = val;
     }
-
     public void setLeft(Tree left) {
         this.left = left;
     }
-
     public void setRight(Tree right) {
         this.right = right;
     }
-
     public int getVal() {
         return val;
     }
-
     public Tree getLeft() {
         return left;
     }
-
     public Tree getRight() {
         return right;
     }
 }
-
 
 public class Test {
     private List<Integer> resultList = new ArrayList<>();
@@ -60,19 +53,13 @@ public class Test {
         helper(node.left, ans, level + 1);
         helper(node.right, ans, level + 1);
     }
-
-
     public static void test(TreeNode node){
         //第一层
         if (node==null) return;
         List resultList = new ArrayList();
-
         List<TreeNode> treeNodes  = new ArrayList<>();
         resultList.add(node.val);
-
     }
-
-
     public static void main(String[] args) {
         Tree v0 = new Tree();
         v0.setVal(3);
@@ -88,9 +75,5 @@ public class Test {
         v0.setRight(v2);
         v2.setLeft(v3);
         v2.setRight(v4);
-
-
-
     }
-
 }
