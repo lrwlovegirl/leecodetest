@@ -1,4 +1,5 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.link;
+
 
 import java.util.LinkedList;
 import java.util.List;

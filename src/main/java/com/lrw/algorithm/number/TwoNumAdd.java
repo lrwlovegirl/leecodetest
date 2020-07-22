@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.number;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,6 @@ import java.util.Stack;
 class ListNode {
     int val;
     ListNode next;
-
     ListNode(int x) {
         val = x;
     }

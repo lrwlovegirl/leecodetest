@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.string;
 
 /**
  * 58. 最后一个单词的长度

@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.sort;
 
 public class LRU {
     private int theArray[];

@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.array;
 
 import java.io.File;
 
@@ -28,6 +28,7 @@ public class MaxSubArray {
      * @param nums
      * @return
      */
+    //[-2,1,-3,4,-1,2,1,-5,4],
     public static int maxSubArray(int[] nums) {
         int ans = nums[0];  //asn 永远保持最大的值
         int sum = 0;

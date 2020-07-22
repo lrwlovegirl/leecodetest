@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.number;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

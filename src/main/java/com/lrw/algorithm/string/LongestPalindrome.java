@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.string;
 
 import java.util.ArrayList;
 import java.util.List;

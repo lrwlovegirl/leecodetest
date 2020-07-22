@@ -50,7 +50,6 @@ public class ThreadLocalTest {
         //todo: 子线程想使用父线程的值演示
         ThreadLocal<String> threadLocal=new ThreadLocal<String>();
         InheritableThreadLocal<String> local=new InheritableThreadLocal<String>();
-
         threadLocal.set("xxxxx父线程");
         System.out.println("父线程的值："+threadLocal.get());
         new Thread(new Runnable(){

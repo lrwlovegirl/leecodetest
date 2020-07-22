@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.string;
 
 /**
  * 给定一个字符串，逐个翻转字符串中的每个单词。

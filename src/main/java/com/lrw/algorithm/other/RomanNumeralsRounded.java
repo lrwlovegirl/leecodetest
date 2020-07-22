@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.other;
 
 import java.util.HashMap;
 import java.util.Map;

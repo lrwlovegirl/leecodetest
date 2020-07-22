@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.link;
 
 /**
  * 67. 二进制求和

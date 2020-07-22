@@ -1,4 +1,5 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.tree;
+import com.lrw.algorithm.tree.TreeNode;
 
 /**
  *

@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.other;
 
 /**
  * 38. 外观数列

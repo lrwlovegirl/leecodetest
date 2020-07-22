@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.number;
 
 /**
  * 简单
