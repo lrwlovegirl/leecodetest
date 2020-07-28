@@ -48,14 +48,14 @@ public class ThreadLocalTest {
 //        localName.set("yyy");
 //        System.out.println(localName.get());
         //todo: 子线程想使用父线程的值演示
-        ThreadLocal<String> threadLocal=new ThreadLocal<String>();
+        //ThreadLocal<String> threadLocal=new ThreadLocal<String>();
         InheritableThreadLocal<String> local=new InheritableThreadLocal<String>();
-        threadLocal.set("xxxxx父线程");
-        System.out.println("父线程的值："+threadLocal.get());
+        local.set("xxxxx父线程");
+        System.out.println("父线程的值："+local.get());
         new Thread(new Runnable(){
               @Override
               public void run(){
-                  System.out.println("子线程的值："+threadLocal.get());
+                  System.out.println("子线程的值："+local.get());
               }
            }).start();
         Thread.sleep(2000);
