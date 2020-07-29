@@ -1,4 +1,4 @@
-package com.lrw.algorithm;
+package com.lrw.algorithm.other;
 
 /**
  * 限流算法之令牌桶算法
