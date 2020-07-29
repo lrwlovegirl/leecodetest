@@ -16,9 +16,8 @@ public class DifferentPath {
     /**
      * 思路：从左上角走到右下角一共需要向右走m-1，向下走n-1步， 一共走m+n-2步，
      * 其中m-1步是向右的，所以是个排列组合问题
-     * @param m
-     * @param n
-     * @return
+     * 执行用时：5 ms
+     * 内存消耗：37.6 MB
      */
     public static int uniquePaths(int m, int n) {
         int bootom = m + n - 2;
@@ -31,11 +30,30 @@ public class DifferentPath {
         return factorial(n-1).multiply(new BigInteger(String.valueOf(n)));
     }
     //#################################################################################
-    //动态规划问题
+    //动态规划解法，参考视频：https://www.bilibili.com/video/BV1xb411e7ww?from=search&seid=15646414550319269409
+
+    /**
+     执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户
+     内存消耗：36.7 MB, 在所有 Java 提交中击败了6.35%的用户
+     */
+    public static int uniquePaths2(int m,int n){
+        int[][] nums = new int[m][n];
+        for (int i=0;i<m;i++){
+            for (int j=0;j<n;j++){
+                if (i==0||j==0){  //定义边界
+                    nums[i][j]=1;
+                }else {
+                    nums[i][j] = nums[i][j-1]+nums[i-1][j];//转换方程
+                }
+            }
+        }
+        return nums[m-1][n-1];
+    }
+
 
 
     public static void main(String[] args) {
-        System.out.println(uniquePaths(23, 12));
+        System.out.println(uniquePaths2(3, 3));
     }
 
 }
