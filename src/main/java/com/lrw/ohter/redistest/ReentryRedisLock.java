@@ -8,6 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 //实现redis可重入锁,用ThreadLocal实现数据隔离
+
+/**
+ * Author liurenwang
+ * time 2020-8-5
+ */
 public class ReentryRedisLock {
     private ThreadLocal<Map<String,Integer>> lockers = new ThreadLocal<>();
     @Autowired
@@ -22,7 +27,7 @@ public class ReentryRedisLock {
     private boolean  privateUnLock(String key) throws Exception {
         String threadId = jedis.get(key);
         if (threadId==null){
-            throw new Exception("没有获取到分布式锁，锁可能已经过期，或请检查传入的key值");
+            throw new Exception("报警：xxx操作没有获取到分布式锁，锁可能已经过期，或请检查传入的key值,key:"+key);
         }
         //不为空，且释放锁的是同一个线程
         if (threadId.equals(Thread.currentThread().getId())){
