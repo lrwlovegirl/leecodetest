@@ -1,11 +1,9 @@
 package com.lrw.ohter.redistest;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import lombok.AllArgsConstructor;
 import redis.clients.jedis.Jedis;
 
-import java.lang.reflect.Type;
 import java.util.Set;
 import java.util.UUID;
 
@@ -23,8 +21,7 @@ public class RedisDelayQueue<T> {
         public T msg;
     }
 
-    private Type taskType = new TypeReference<TaskItem>() {
-    }.getType();
+
     private Jedis jedis;
     private String queueKey; //延迟队列的名称
 
@@ -46,6 +43,7 @@ public class RedisDelayQueue<T> {
             //队列中没有在这个区间的值
             if (values == null || values.isEmpty()) {
                 try {
+                    System.out.println(Thread.currentThread().getId() + ",休息一下");
                     Thread.sleep(500);//休息一下，再重试
                 } catch (InterruptedException e) {
                     break;
@@ -58,6 +56,8 @@ public class RedisDelayQueue<T> {
                 TaskItem<T> taskObject = JSON.parseObject(result, TaskItem.class);
                 //这里应该是函数，表示去处理请求,简单输出一下
                 System.out.println(taskObject.msg);
+            } else {
+                System.out.println(Thread.currentThread().getId() + ",没有抢到cpu");
             }
         }
     }
@@ -65,7 +65,7 @@ public class RedisDelayQueue<T> {
     public static void main(String[] args) {
 
         Jedis jedis = new RedisUtil().getJedis();
-        RedisDelayQueue redisDelayQueue = new RedisDelayQueue(null, jedis, "delaQueue");
+        RedisDelayQueue redisDelayQueue = new RedisDelayQueue(jedis, "delayQueue");
         Thread producer = new Thread(() -> {
             for (int x = 0; x < 100000; x++) {
                 redisDelayQueue.entreQueue("test" + x);

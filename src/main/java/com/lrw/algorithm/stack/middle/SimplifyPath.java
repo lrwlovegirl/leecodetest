@@ -113,9 +113,6 @@ public class SimplifyPath {
         }
         return res.toString();
     }
-
-
-
     public static void main(String[] args) {
         System.out.println(simplifyPathCorrectly("/..."));
     }

@@ -56,5 +56,31 @@ public class quickSort {
     }
 
 
+    public static int [] setArr(int[] arr ,int left ,int right) {
+        if (right<left){
+            return arr;
+        }
+        int i = left ;
+        int j = right;
+        int base = arr[i];//基准
+        while (i!=j){
+            while (j>i&&arr[j]>base){
+                j--;
+            }
+            while (i<j&&arr[i]<base){
+                i++;
+            }
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        //i=j时交换基准
+        arr[left] = arr[i] ;
+        arr[i]  = base;
+        //
+        quickSortTest(arr,left,i-1);
+        quickSortTest(arr,j+1,right);
 
+        return arr;
+    }
 }

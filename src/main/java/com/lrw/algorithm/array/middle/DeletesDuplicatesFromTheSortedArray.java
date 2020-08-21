@@ -35,4 +35,8 @@ public class DeletesDuplicatesFromTheSortedArray {
         return  current+1;
     }
 
+    public static void main(String[] args) {
+        System.out.println(new Integer(255).equals(new Integer(255)));
+    }
+
 }

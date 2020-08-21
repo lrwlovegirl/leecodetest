@@ -1,8 +1,7 @@
-package com.lrw.ohter;
+package com.lrw.ohter.redistest;
 
 import org.omg.IOP.Encoding;
 
-import javax.sound.sampled.AudioFormat;
 import java.util.HashSet;
 
 //redis底层数据结构
@@ -16,6 +15,7 @@ class SDS {
     int len;//存储的字符串长度
     char[] buf;//char型数组保存字符串的每个元素
     int free;//buf 中未使用的字节数量（这里应该是说字符数组中剩余的位置，当free小于某个值时会进行扩容）
+
 
     /**
      redis为什么不适用C语言自带的字符串
