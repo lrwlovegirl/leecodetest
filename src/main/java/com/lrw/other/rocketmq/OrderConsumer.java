@@ -1,4 +1,4 @@
-package com.lrw.ohter.rocketmq;
+package com.lrw.other.rocketmq;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;

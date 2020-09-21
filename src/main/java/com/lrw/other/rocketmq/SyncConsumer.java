@@ -1,12 +1,11 @@
-package com.lrw.ohter.rocketmq;
+package com.lrw.other.rocketmq;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
-
-import java.util.Collections;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SyncConsumer {
     public static void main(String[] args) throws MQClientException {
@@ -21,7 +20,7 @@ public class SyncConsumer {
             return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
         });
         consumer.start();
-
+        new ClassPathXmlApplicationContext();
 
 
 

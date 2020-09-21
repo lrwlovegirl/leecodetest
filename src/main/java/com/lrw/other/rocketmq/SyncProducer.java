@@ -1,4 +1,4 @@
-package com.lrw.ohter.rocketmq;
+package com.lrw.other.rocketmq;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

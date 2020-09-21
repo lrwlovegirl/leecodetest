@@ -14,7 +14,6 @@ public class Fibonacci {
         if (n==1){
             return 1;
         }
-        System.out.println("正在计算："+n);
         return resolve1(n-1)+resolve1(n-2);
     }
 
@@ -38,7 +37,7 @@ public class Fibonacci {
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         System.out.println("开始："+start);
-        System.out.println(resolve1(100));
+        System.out.println(resolve1(45));
         long end = System.currentTimeMillis();
         System.out.println("结束："+end+", 花费时间："+String.format(String.valueOf((end-start)/1000),"%f"));
     }

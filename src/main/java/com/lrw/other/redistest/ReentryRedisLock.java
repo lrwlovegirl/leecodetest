@@ -1,7 +1,6 @@
-package com.lrw.ohter.redistest;
+package com.lrw.other.redistest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import redis.clients.jedis.Jedis;
 
 import java.util.HashMap;
@@ -36,6 +35,7 @@ public class ReentryRedisLock {
             throw  new Exception("报警： xxx操作加锁和释放锁不是同一个线程");
         }
     }
+
     //工具，获得存取加锁次数的容器，因为每个使用的是ThreadLocal，所以可以实现数据隔离
     private Map<String ,Integer> currentLockers(){
         Map<String,Integer> refs = lockers.get();
@@ -61,6 +61,8 @@ public class ReentryRedisLock {
         refs.put(key,1);
         return true;
     }
+
+
     //释放锁对外接口
     public boolean unLock(String key) throws Exception {
        Map<String,Integer> refs = currentLockers();

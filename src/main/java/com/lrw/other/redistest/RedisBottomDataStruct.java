@@ -1,4 +1,4 @@
-package com.lrw.ohter.redistest;
+package com.lrw.other.redistest;
 
 import org.omg.IOP.Encoding;
 

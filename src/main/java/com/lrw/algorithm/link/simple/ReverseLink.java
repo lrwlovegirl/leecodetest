@@ -59,7 +59,7 @@ public class ReverseLink {
         v2.next = v3;
         v3.next =v4;
 
-        ListNode newRoot = reverseLinkWithStack(root);
+        ListNode newRoot = reverseLink(root);
         while (newRoot!=null){
             System.out.println(newRoot.val);
             newRoot = newRoot.next;

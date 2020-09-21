@@ -1,4 +1,4 @@
-package com.lrw.ohter.redistest;
+package com.lrw.other.redistest;
 
 import com.alibaba.fastjson.JSON;
 import lombok.AllArgsConstructor;

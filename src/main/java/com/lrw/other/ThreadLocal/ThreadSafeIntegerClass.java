@@ -1,4 +1,4 @@
-package com.lrw.ohter.ThreadLocal;
+package com.lrw.other.ThreadLocal;
 
 import sun.misc.Unsafe;
 

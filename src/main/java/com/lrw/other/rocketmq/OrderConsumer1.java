@@ -1,10 +1,4 @@
-package com.lrw.ohter.rocketmq;
-
-import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
-import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;
-import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
+package com.lrw.other.rocketmq;
 
 public class OrderConsumer1 {
     public static void main(String[] args) {

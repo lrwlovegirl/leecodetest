@@ -74,6 +74,12 @@
             <artifactId>spring-tx</artifactId>
             <version>5.2.2.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-common</artifactId>
+            <version>2.7.8</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,13 +1,9 @@
-package com.lrw.ohter.rocketmq;
+package com.lrw.other.rocketmq;
 
-import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
-
-import java.util.List;
 
 public class OrderProducer {
 

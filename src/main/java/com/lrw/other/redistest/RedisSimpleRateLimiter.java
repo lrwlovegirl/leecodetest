@@ -1,4 +1,4 @@
-package com.lrw.ohter.redistest;
+package com.lrw.other.redistest;
 //redis 限流器
 
 import lombok.AllArgsConstructor;
@@ -44,6 +44,7 @@ public class RedisSimpleRateLimiter {
         for (int  x= 0;x<1000000;x++){
             System.out.println(redisSimpleRateLimiter.isActionAllowed("liurenwang","reply",10,5));
         }
+
     }
 
 }

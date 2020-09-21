@@ -1,6 +1,4 @@
-package com.lrw.ohter.ThreadLocal;
-
-import sun.nio.ch.DirectBuffer;
+package com.lrw.other.ThreadLocal;
 
 /**
  * 什么是ThreadLocal
