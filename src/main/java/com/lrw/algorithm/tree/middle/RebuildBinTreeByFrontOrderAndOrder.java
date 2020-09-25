@@ -1,6 +1,7 @@
-package com.lrw.algorithm.tree.simple;
+package com.lrw.algorithm.tree.middle;
 
 import com.lrw.algorithm.tree.TreeNode;
+import com.lrw.algorithm.tree.simple.InorderTraversal;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * Author: liurenwang
  * time: 2020-8-21
  */
-public class RebuildBinTree {
+public class RebuildBinTreeByFrontOrderAndOrder {
 
     public static TreeNode resolve(int[] front, int middle[]) {
         if (front == null || front.length == 0) {
@@ -39,12 +40,22 @@ public class RebuildBinTree {
     }
 
     public static void main(String[] args) {
-        int[] front = new int[]{1, 2, 4, 7, 3, 5, 6, 8};
-        int[] middle = new int[]{4, 7, 2, 1, 5, 3, 8, 6};
-        TreeNode root = resolve(front, middle);
-        List<Integer> result = InorderTraversal.inorderTraversal(root);
-        for (int x = 0; x < result.size(); x++) {
-            System.out.println(result.get(x));
+//        int[] front = new int[]{1, 2, 4, 7, 3, 5, 6, 8};
+//        int[] middle = new int[]{4, 7, 2, 1, 5, 3, 8, 6};
+//        TreeNode root = resolve(front, middle);
+//        List<Integer> result = InorderTraversal.inorderTraversal(root);
+//        for (int x = 0; x < result.size(); x++) {
+//            System.out.println(result.get(x));
+//        }
+        int[] nums = new int[]{6,3,6,75,34,46,57,4,5,4,3,4,6,5,7,5};
+        //copyOfRange 函数只会复制from 不会复制to，复制的总数是to-from
+        int[] copyNums = Arrays.copyOfRange(nums, 2, 7);
+        System.out.println(copyNums.length);
+        for (int x=0;x<copyNums.length;x++){
+            System.out.print(copyNums[x]+" ");
         }
+
+
+
     }
 }
