@@ -1,8 +1,7 @@
 package com.lrw.algorithm.array.middle;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,8 +24,8 @@ public class CombinedTotal {
     //参考答案，回溯法
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        List<Integer>  ans = new ArrayList<>();
-        helper(target,candidates,0,result,ans);
+        List<Integer> ans = new ArrayList<>();
+        helper(target, candidates, 0, result, ans);
         return result;
     }
 
@@ -39,28 +38,67 @@ public class CombinedTotal {
             result.add(new ArrayList<>(ans));
             return;
         }
-        for (int x = begin;x<candidates.length;x++){
-             ans.add(candidates[x]);
-             int v = target-candidates[x];
-             helper(v,candidates,x,result,ans);
-             //删除最后一个元素
-             ans.remove(ans.size()-1);
+        for (int x = begin; x < candidates.length; x++) {
+            ans.add(candidates[x]);
+            int v = target - candidates[x];
+            helper(v, candidates, x, result, ans);
+            //删除最后一个元素
+            ans.remove(ans.size() - 1);
         }
     }
 
+    private static void helper1(int target, int[] candidates, int begin, List<List<Integer>> result, List<Integer> ans) {
+        //递归出口
+        if (target < 0) {
+            return;
+        }
+        if (target == 0) {
+            result.add(new ArrayList<>(ans));
+            return;
+        }
+        for (int x = begin; x < candidates.length; x++) {
+            if (x>begin&&candidates[x]==candidates[x-1]){
+                continue;
+            }
+            ans.add(candidates[x]);
+            int v = target - candidates[x];
+            helper1(v, candidates, x + 1, result, ans);
+            //删除最后一个元素
+            ans.remove(ans.size() - 1);
+        }
+    }
+
+    /**
+     * 进阶版，不能重复
+     *
+     * @param candidates
+     * @param target
+     * @return
+     */
+    public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
+        helper1(target, candidates, 0, result, ans);
+        return result;
+    }
+
+
     public static void main(String[] args) {
-        int [] candidates = new int[]{2,3,6,7};
-        int target = 7;
-        List<List<Integer>> lists = combinationSum(candidates, target);
-        lists.forEach(list->{
-            list.forEach(obj->{
-                System.out.print(obj+" ");
+        int[] candidates = new int[]{1, 1, 2, 5, 6, 7, 10};
+        int target = 8;
+        List<List<Integer>> lists = combinationSum2(candidates, target);
+        lists.forEach(list -> {
+            list.forEach(obj -> {
+                System.out.print(obj + " ");
             });
             System.out.println(" ");
         });
-
-
     }
+
+
+
+
 
 
 }

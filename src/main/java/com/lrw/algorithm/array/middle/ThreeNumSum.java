@@ -1,4 +1,4 @@
-package com.lrw.algorithm.number.middle;
+package com.lrw.algorithm.array.middle;
 
 import java.util.ArrayList;
 import java.util.Arrays;

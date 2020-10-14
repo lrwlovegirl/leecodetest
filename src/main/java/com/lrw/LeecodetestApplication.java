@@ -1,15 +1,27 @@
 package com.lrw;
 
-import org.apache.dubbo.common.threadpool.support.cached.CachedThreadPool;
+import com.lrw.other.netty.netty.server.NettyServer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.concurrent.ConcurrentHashMap;
+import java.net.InetSocketAddress;
 
 @SpringBootApplication
-public class LeecodetestApplication {
+public class LeecodetestApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(LeecodetestApplication.class, args);
-        new CachedThreadPool();
+    }
+
+    @Autowired
+    private NettyServer nettyServer;
+
+
+    @Override
+    public void run(String... args) throws Exception {
+        InetSocketAddress address = new InetSocketAddress("127.0.0.1",8888);
+        System.out.println("准备开启netty server");
+        nettyServer.start(address);
     }
 }
