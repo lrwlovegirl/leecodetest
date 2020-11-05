@@ -40,18 +40,4 @@ public class AllPossibleFBT {
         return result;
     }
 
-    private TreeNode helper(int n) {
-        if (n == 1) {
-            return new TreeNode(0);
-        }
-        TreeNode root = new TreeNode(0);
-        while (n > 1) {
-            root.left = helper(n - 2);
-            root.right = helper(n - 2);
-        }
-
-
-        return null;
-    }
-
 }

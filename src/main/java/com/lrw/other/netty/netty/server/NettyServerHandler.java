@@ -87,18 +87,13 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
-        System.out.println();
-        log.info("加载客户端报文......");
-        log.info("【" + ctx.channel().id() + "】" + " :" + msg);
-
+        System.out.println("服务器端收到了客户端发来的消息，消息内容是：" + msg + "channelId：" + ctx.channel().id());
         /**
          *  下面可以解析数据，保存数据，生成返回报文，将需要返回报文写入write函数
          *
          */
-
         //响应客户端
-        this.channelWrite(ctx.channel().id(), msg);
+        this.channelWrite(ctx.channel().id(), "这里表示服务器端收到了消息，正在相应给客户端：client,hello world");
     }
 
     /**
@@ -123,7 +118,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         }
 
         //将客户端的信息直接返回写入ctx
-        ctx.write("服务端对消息进行了处理： " + msg);
+        ctx.write(msg);
         //刷新缓存区
         ctx.flush();
     }

@@ -79,7 +79,11 @@
             <artifactId>dubbo-common</artifactId>
             <version>2.7.8</version>
         </dependency>
-
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
     </dependencies>
 
     <build>

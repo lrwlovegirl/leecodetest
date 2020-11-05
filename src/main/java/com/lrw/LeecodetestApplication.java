@@ -20,7 +20,7 @@ public class LeecodetestApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        InetSocketAddress address = new InetSocketAddress("127.0.0.1",8888);
+        InetSocketAddress address = new InetSocketAddress("127.0.0.1",9999);
         System.out.println("准备开启netty server");
         nettyServer.start(address);
     }

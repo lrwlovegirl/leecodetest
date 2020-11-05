@@ -21,7 +21,7 @@ public class DeletesDuplicatesFromTheSortedArray {
             return 0;
         }
         if (nums.length==1){
-            return nums[0];
+            return 1;
         }
         int current = 0;    // 慢指针，在当前指针以及左边的元素是已确定的元素
         int index=0;      // 快指针，用于遍历未确定的元素

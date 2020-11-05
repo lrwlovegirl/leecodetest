@@ -8,8 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @program: qingcheng
- * @author: XIONG CHUAN
+ * @author: liurenwang
  * @create: 2019-04-28 19:37
  * @description: 客户端处理类
  **/
@@ -46,7 +45,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
 
-        log.info("回写数据:" + msg);
+        log.info("服务器收到了客户端发的消息，服务器又向客户端发送了一个数据" + msg);
     }
 
 
