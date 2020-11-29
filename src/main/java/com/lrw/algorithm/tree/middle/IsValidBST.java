@@ -16,11 +16,6 @@ public class IsValidBST {
         if ((root.left!=null&&root.left.val>=root.val)||(root.right!=null&&root.right.val<=root.val)){
             return false;
         }
-        //子树满足，但是左节点比根节点小
-        //if ()
-
-
-
         return isValidBST(root.left)&&isValidBST(root.right);
     }
 

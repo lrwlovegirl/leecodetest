@@ -39,47 +39,6 @@ import java.util.List;
  */
 public class OtherSubtree {
 
-
-    /**
-     * 未通过，原因：只包含不行，s树对应的子树不能比t树节点多
-     * @param s
-     * @param t
-     * @return
-     */
-    public static boolean isSubtree(TreeNode s, TreeNode t) {
-        List<Integer> sList = converToList(s);
-        List<Integer> tList = converToList(t);
-        // return sList.containsAll(tList);
-        List<Integer> indexList = converToList(t);
-        if (sList.containsAll(tList)) {
-
-        }
-        return false;
-    }
-
-    public static List<Integer> converToList(TreeNode s) {
-        List<Integer> sList = new ArrayList<>();
-        boolean flag = true;
-        while (s != null) {
-            if (flag) {
-                sList.add(s.val);
-                flag = false;
-            }
-            if (s.left != null) {
-                sList.add(s.left.val);
-            }
-            if (s.right != null) {
-                sList.add(s.right.val);
-            }
-            if (s.left != null) {
-                s = s.left;
-            } else {
-                s = s.right;
-            }
-        }
-        return sList;
-    }
-
     //########################################################################################################
     public static boolean isSubtree1(TreeNode s, TreeNode t) {
         if (t == null) return true;   // t 为 null 一定都是 true
@@ -94,20 +53,5 @@ public class OtherSubtree {
         return isSameTree(s.left, t.left) && isSameTree(s.right, t.right);
     }
 
-    public static void main(String[] args) {
-//        TreeNode t1 = new TreeNode(1);
-//        TreeNode t2 = new TreeNode(2);
-//        TreeNode t3 = new TreeNode(3);
-//        TreeNode t4 = new TreeNode(4);
-//        TreeNode t5 = new TreeNode(5);
-//        t4.left = t1;
-//        t4.right = t2;
-//        t3.left = t4;
-//        t3.right = t5;
-//        System.out.println(isSubtree1(t3, t4));
-        char a = 256;
-        int d = a;
-
-    }
 }
 
