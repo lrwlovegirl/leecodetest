@@ -3,9 +3,7 @@ package com.lrw.algorithm.tree.middle;
 import com.lrw.algorithm.tree.TreeNode;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * 给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
@@ -29,121 +27,24 @@ import java.util.Queue;
 
 
 public class RightViewOfBinaryTree {
-    //此方法行不通  输入：[1,null,2,null,5,4,6,3]  正确答案：[1,2,5,6,3]  代码输出：[1,2,5,6]
-    public static List<Integer> rightSideView(TreeNode root) {
-        //校验空
-        List<Integer> resultList = new ArrayList<>();
-        if (null == root) {
-            return resultList;
-        }
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        dfs(root,0,res);
+        return res;
+    }
 
-        //校验只有根节点
-        if (root.right == null && root.left == null) {
-            resultList.add(root.val);
-            return resultList;
+    public void  dfs(TreeNode root,int depth,List<Integer> res){
+        if (root==null){
+            return;
         }
-        //正常来讲，在同一级上，只要有右节点就看不到其他的子节点
-        int rightCount = 1; //计数器看一下到第几层右节点没有子节点了
-        int leftCount = 1; //左节点计数器
-        TreeNode copyRoot = root;
-        resultList.add(root.val);
-        while (root.right != null || root.left != null) {
-            rightCount++;
-            if (root.right != null) {
-                resultList.add(root.right.val);
-                root = root.right;
-            } else if (root.left != null) {
-                resultList.add(root.left.val);
-                root = root.left;
-            }
+        if (depth==res.size()){
+            res.add(root.val);
         }
-
-        while (copyRoot!=null&&(copyRoot.left != null || copyRoot.right != null)) {
-            leftCount++;
-            if (leftCount > rightCount) {
-                if (copyRoot.right != null) {
-                    resultList.add(copyRoot.right.val);
-                    copyRoot = copyRoot.right;
-                } else if (copyRoot.left != null) {
-                    resultList.add(copyRoot.left.val);
-                    copyRoot = copyRoot.left;
-                }
-            } else {
-                if (leftCount - 1 == 1) {
-                    copyRoot = copyRoot.left;
-                } else {
-                    if (copyRoot.right != null) {
-                        copyRoot = copyRoot.right;
-                    } else if (copyRoot.left != null) {
-                        copyRoot = copyRoot.left;
-                    }
-                }
-            }
-        }
-        return resultList;
+        depth++;
+        dfs(root.right,depth,res);
+        dfs(root.left,depth,res);
     }
 
 
-
-    public static List<Integer> rightSideView1(TreeNode root) {
-        //校验空
-        List<Integer> resultList = new ArrayList<>();
-        if (null == root) {
-            return resultList;
-        }
-        //校验只有根节点
-        if (root.right == null && root.left == null) {
-            resultList.add(root.val);
-            return resultList;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()){
-            int size = queue.size(); // 每层节点的数量
-            for (int x = 0 ;x<size;x++){
-                TreeNode node = queue.poll();//出队
-
-
-            }
-        }
-
-        return resultList;
-    }
-
-
-    public static void main(String[] args) {
-//        TreeNode t1  = new TreeNode(1);
-//        TreeNode t2  = new TreeNode(2);
-//        TreeNode t3  = new TreeNode(3);
-//        TreeNode t4  = new TreeNode(4);
-//        TreeNode t5  = new TreeNode(5);
-//        t2.right= t5;
-//        t3.right = t4;
-//        t1.left = t2;
-//        t1.right = t3;
-//        List<Integer> list = rightSideView(t1);
-//        list.forEach(obj->{
-//            System.out.println(obj);
-//       });
-//        TreeNode t1 = new TreeNode(1);
-//        TreeNode t2 = new TreeNode(2);
-//        TreeNode t3 = new TreeNode(3);
-//        TreeNode t4 = new TreeNode(4);
-//        t2.left = t4;
-//        t1.left = t2;
-//        t1.right = t3;
-//        List<Integer> list = rightSideView(t1);
-//        list.forEach(obj -> {
-//            System.out.println(obj);
-//        });
-
-        TreeNode t1  = new TreeNode(1);
-        TreeNode t3  = new TreeNode(3);
-        t1.right=t3;
-        List<Integer> list = rightSideView(t1);
-        list.forEach(obj->{
-            System.out.println(obj);
-        });
-    }
 
 }
