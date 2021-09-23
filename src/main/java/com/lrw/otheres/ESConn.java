@@ -41,9 +41,10 @@ public class ESConn {
 
         );
         //1创建一个索引（一个数据库,一张表，因为现在type的定义被去掉了）
-        CreateIndexResponse indexName = client.indices().create(new CreateIndexRequest("indexName"), RequestOptions.DEFAULT);
+        CreateIndexResponse indexName = client.indices().create(new CreateIndexRequest("user"), RequestOptions.DEFAULT);
         //索引相应
         boolean acknowledged = indexName.isAcknowledged();
+        System.out.println(acknowledged);
         //2、查询索引详情
         GetIndexRequest getIndexRequest = new GetIndexRequest("indexName","还能继续添加");
         GetIndexResponse getIndexResponse = client.indices().get(getIndexRequest, RequestOptions.DEFAULT);
@@ -122,7 +123,7 @@ public class ESConn {
         //取某个属性的最大值，最小值，平均值
         SearchRequest maxRequest = new SearchRequest().indices("indexName").source(new SearchSourceBuilder().aggregation(AggregationBuilders.max("叫做什么名字").field("fieldName")));
         SearchResponse search = client.search(maxRequest, RequestOptions.DEFAULT);
-        
+
 
         //2.删除数据
         DeleteRequest deleteRequest = new DeleteRequest().index("indexName").id("supplier_id");
