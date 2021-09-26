@@ -37,7 +37,7 @@ public class Fibonacci {
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         System.out.println("开始："+start);
-        System.out.println(resolve1(45));
+        System.out.println(resolve(100));
         long end = System.currentTimeMillis();
         System.out.println("结束："+end+", 花费时间："+String.format(String.valueOf((end-start)/1000),"%f"));
     }
