@@ -7,7 +7,7 @@ package com.lrw.algorithm.number.simple;
  */
 public class Fibonacci {
 
-    public static int resolve1(int n){
+    public static long resolve1(int n){
         if (n==0){
             return 0;
         }
@@ -18,28 +18,24 @@ public class Fibonacci {
     }
 
     //第100项： 3736710778780434371
-    public static long resolve(int n){
-        int[] result = new int[]{0,1};
-        if (n<2){
+    public static int resolve(int n){
+        int[] result = new int[]{1,1,2};
+        if (n<=2){
             return result[n];
         }
-        long numOne = 1;
-        long numTwo = 0;
-        long num = 0;
-        for (int i = 2; i <= n; i++) {
+        int numOne = 1;
+        int numTwo = 0;
+        int num = 0;
+        for (int i = 1; i <= n; i++) {
             num = numOne+ numTwo;
             numTwo = numOne;
             numOne = num;
         }
-        return num;
+        return num % 1000000007;
     }
 
     public static void main(String[] args) {
-        long start = System.currentTimeMillis();
-        System.out.println("开始："+start);
-        System.out.println(resolve(100));
-        long end = System.currentTimeMillis();
-        System.out.println("结束："+end+", 花费时间："+String.format(String.valueOf((end-start)/1000),"%f"));
+        System.out.println(resolve(44));
     }
 
 }
