@@ -14,20 +14,26 @@ package com.lrw.algorithm.jianzhioffer;
 */
 public class FindNumberIn2DArray_04 {
 
-    public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        int m = matrix.length;
-        int n = matrix[0].length;
-
-        if (target< matrix[0][0] || matrix[m-1][n-1]<target){
-            return false;
+    public static boolean findNumberIn2DArray(int[][] matrix, int target) {
+        int m = matrix.length, n = matrix[0].length;
+        int x = 0, y = n - 1;
+        while (x < m && y >= 0) {
+            if (matrix[x][y] == target) {
+                return true;
+            }
+            if (matrix[x][y] > target) {
+                --y;
+            } else {
+                ++x;
+            }
         }
-        int x =0 ,y = 0;
-        for (; x<m;x++){
-            //if ()
-        }
-
-
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix ={{5},{6}};
+        int target = 6;
+        System.out.println(findNumberIn2DArray(matrix,target));
     }
 
 }
