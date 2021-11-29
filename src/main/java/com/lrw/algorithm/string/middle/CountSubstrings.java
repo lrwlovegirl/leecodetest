@@ -55,7 +55,6 @@ public class CountSubstrings {
                    count++;
                    l--;
                    r++;
-                   int y =1;
                }
            }
 
